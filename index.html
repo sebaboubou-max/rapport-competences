@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapport de Competences — Sebastien vs ESM AI Business Specialist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --text: #e4e4ef;
+    --text-dim: #8888a0;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.15);
+    --green: #22c55e;
+    --green-dim: rgba(34, 197, 94, 0.12);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245, 158, 11, 0.12);
+    --red: #ef4444;
+    --cyan: #06b6d4;
+    --cyan-dim: rgba(6, 182, 212, 0.12);
+    --purple: #a855f7;
+    --purple-dim: rgba(168, 85, 247, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    padding: 80px 40px 60px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    max-width: 800px;
+    margin: 0 auto 16px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hero-date {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 20px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    background: var(--surface);
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--accent);
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* CONTAINER */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 32px;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 32px 0 16px;
+    color: var(--text);
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .card-body {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  /* TABLES */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: var(--surface2);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface); }
+
+  /* TAGS */
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+  }
+  .tag-green { background: var(--green-dim); color: var(--green); }
+  .tag-amber { background: var(--amber-dim); color: var(--amber); }
+  .tag-cyan { background: var(--cyan-dim); color: var(--cyan); }
+  .tag-purple { background: var(--purple-dim); color: var(--purple); }
+  .tag-accent { background: var(--accent-glow); color: var(--accent); }
+
+  /* COMPARISON GRID */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .compare-col h4 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .compare-col ul {
+    list-style: none;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .compare-col ul li {
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .compare-col ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .col-auto ul li::before { background: var(--amber); }
+  .col-sentier ul li::before { background: var(--green); }
+
+  /* CODE */
+  code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .code-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+    color: var(--text-dim);
+    margin: 16px 0;
+    white-space: pre;
+  }
+
+  /* BLOCKQUOTE */
+  blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 16px 24px;
+    margin: 24px 0;
+    background: var(--accent-glow);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--text);
+    font-size: 15px;
+  }
+
+  /* BULLET LIST */
+  .bullet-list {
+    list-style: none;
+    padding: 0;
+  }
+  .bullet-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .bullet-list li strong { color: var(--text); }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 24px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .timeline-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .timeline-text {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* POST CARD (Holzweg) */
+  .post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 12px 0;
+    border-left: 3px solid var(--green);
+  }
+  .post-card .post-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .post-card .post-excerpt {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 48px 24px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+  .footer strong { color: var(--accent); }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, var(--accent-glow), var(--purple-dim));
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    margin: 32px 0;
+  }
+  .cta-box h3 {
+    color: var(--accent);
+    margin: 0 0 12px;
+    font-size: 20px;
+  }
+  .cta-box p {
+    font-size: 15px;
+    color: var(--text);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Rapport de Competences</div>
+  <h1>Sebastien <span>vs</span> Brevet Federal<br>AI Business Specialist</h1>
+  <p class="hero-sub">Analyse croisee entre le profil technique de Sebastien et les exigences de la formation ESM Geneve / Dorier Group</p>
+  <p class="hero-date">2026-02-10 &mdash; Genere par Claude Opus 4.6</p>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-value">551k</div><div class="stat-label">Lignes de code</div></div>
+  <div class="stat"><div class="stat-value">601</div><div class="stat-label">Commits</div></div>
+  <div class="stat"><div class="stat-value">302</div><div class="stat-label">Phases</div></div>
+  <div class="stat"><div class="stat-value">4 386</div><div class="stat-label">Fichiers de tests</div></div>
+  <div class="stat"><div class="stat-value">57j</div><div class="stat-label">Duree du projet</div></div>
+  <div class="stat"><div class="stat-value">1.7M</div><div class="stat-label">Relations Neo4j</div></div>
+</div>
+
+<div class="container">
+
+<!-- 1. RESUME EXECUTIF -->
+<section>
+  <div class="section-num">01</div>
+  <h2>Resume Executif</h2>
+  <p style="font-size:15px; color:var(--text-dim); margin-bottom:24px;">Sebastien est un developpeur full-stack specialise en IA qui a construit, en solo et en 57 jours, un ecosysteme complet :</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:12px;">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--cyan-dim);">&#128241;</div>
+        <div class="card-title">App Mobile</div>
+      </div>
+      <div class="card-body">React Native / TypeScript &mdash; <strong style="color:var(--cyan);">79k lignes</strong><br>Expo SDK 52+, Skia, Reanimated v3, FlashList</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--green-dim);">&#9881;</div>
+        <div class="card-title">Backend IA</div>
+      </div>
+      <div class="card-body">Python / FastAPI &mdash; <strong style="color:var(--green);">472k lignes</strong><br>LangGraph, Neo4j, Qdrant, Redis, 31+ moteurs logiques</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--purple-dim);">&#127794;</div>
+        <div class="card-title">Holzweg</div>
+      </div>
+      <div class="card-body">Agent IA autonome &mdash; <strong style="color:var(--purple);">17 modules</strong><br>Deploye sur Moltbook, 57+ posts, memoire 5 niveaux</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--amber-dim);">&#9889;</div>
+        <div class="card-title">Ralph</div>
+      </div>
+      <div class="card-body">Automatisation nocturne &mdash; <strong style="color:var(--amber);">V10</strong><br>Retry intelligent, classification 11 erreurs, escalade Telegram</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--accent-glow);">&#9878;</div>
+        <div class="card-title">El Manana</div>
+      </div>
+      <div class="card-body">Raisonnement dialectique &mdash; <strong style="color:var(--accent);">Hegel + Dung</strong><br>These / Antithese / Synthese computationnelle</div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background:var(--green-dim);">&#128737;</div>
+        <div class="card-title">AgentForge</div>
+      </div>
+      <div class="card-body">Framework securite IA &mdash; <strong style="color:var(--green);">3 couches</strong><br>Hooks + Memory + Learning &mdash; "Sancho Panza Guards"</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CORRESPONDANCE ARTICLE -->
+<section>
+  <div class="section-num">02</div>
+  <h2>Correspondance avec l'Article ESM</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Chaque theme aborde par Charles Foucault-Dumas mappe sur une realisation concrete.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Theme ESM</th><th>Realisation Sebas</th><th>Preuve</th></tr></thead>
+      <tbody>
+        <tr><td>Concevoir un projet IA</td><td>Architecture Smash Coach : LLM orchestration, RAG, multi-agent, physique temps reel</td><td><code>app/core/</code> &mdash; 31+ moteurs</td></tr>
+        <tr><td>Piloter un projet IA</td><td>302 phases documentees, methodologie phase-driven, 601 commits solo</td><td><code>git log</code> = 601</td></tr>
+        <tr><td>Jonction technique/business</td><td>Freemium (FREE/PRO), routing 78% economie, paywall RevenueCat</td><td><code>useSubscription.ts</code></td></tr>
+        <tr><td>Avatar bancaire (Dorier)</td><td>Holzweg : agent autonome, memoire persistante, securite cognitive</td><td>17 modules Python</td></tr>
+        <tr><td>Assistant juridique + RAG</td><td>RAG V30.0 : 586 chunks, FlashRank, HyDE, &lt;100ms</td><td><code>app/core/nile/</code></td></tr>
+        <tr><td>Protection des donnees</td><td>FENRIR (19 archetypes), Sentinelles anti-injection, Ollama local</td><td><code>.claude/hooks/</code></td></tr>
+        <tr><td>ChatGPT vs IA entreprise</td><td>9-Sage Council, RAG pipeline, multi-tier cache, H1 validation</td><td>Architecture complete</td></tr>
+        <tr><td>Shadow AI</td><td>AgentForge, behavioral rules, NILE (6 gardiens proactifs)</td><td>58+ error patterns</td></tr>
+        <tr><td>Ethique &amp; gouvernance</td><td>Wittgenstein Gate, Sovereignty Tiers, anti-sycophancy</td><td>Holzweg posts</td></tr>
+        <tr><td>Raisonnement &gt; outil</td><td>El Manana (dialectique hegelienne), argumentation de Dung</td><td>144 fichiers</td></tr>
+        <tr><td>Hallucinations (30%)</td><td>CohomologicalValidator : H^1 obstruction, entropie Shannon, KL divergence</td><td>Topologie algebrique</td></tr>
+        <tr><td>Decision &amp; volume de donnees</td><td>Neo4j (1.7M relations), Qdrant (&lt;10ms), Arbiter (78% economie)</td><td>3 bases de donnees</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 3. HOLZWEG -->
+<section>
+  <div class="section-num">03</div>
+  <h2>Deep Dive : Holzweg &#127794;</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Agent conversationnel autonome deploye sur Moltbook. 17 modules Python, 12,665 lignes. Decide seul quand parler, quoi dire, et quand se taire.</p>
+
+  <h3>Architecture cognitive (6 axes)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Axe</th><th>Module</th><th>Fonction</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag tag-accent">Decision</span></td><td><code>state_machine.py</code></td><td>Score de necessite (seuil 0.4). Defaut = SILENCE (Gelassenheit)</td></tr>
+        <tr><td><span class="tag tag-cyan">Competence</span></td><td><code>wittgenstein_gate.py</code></td><td>Refuse de parler hors domaine. Densite Shannon, confiance epistemique, nouveaute Jaccard</td></tr>
+        <tr><td><span class="tag tag-amber">Securite</span></td><td><code>security_filter.py</code></td><td>68 patterns de menaces en 6 categories. Hash SHA256 des fichiers identitaires</td></tr>
+        <tr><td><span class="tag tag-green">Memoire</span></td><td><code>neo4j + qdrant + tiers</code></td><td>5 niveaux : WORKING (1j) &rarr; EPISODIC (30j) &rarr; SEMANTIC (365j) &rarr; PROCEDURAL (730j) &rarr; IDENTITY (&infin;)</td></tr>
+        <tr><td><span class="tag tag-purple">Anomalie</span></td><td><code>anomaly_detector.py</code></td><td>Z-score (3.5), divergence KL (5.0), entropie Shannon (bot &lt; 1.5, chaos &gt; 5.5)</td></tr>
+        <tr><td><span class="tag tag-accent">Cout</span></td><td><code>token_optimizer.py</code></td><td>Pipeline 3 niveaux : prefiltre &rarr; Haiku (200 tokens) &rarr; Opus. ~60% economie</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Posts philosophiques (en francais)</h3>
+  <div class="post-card">
+    <div class="post-title">Agents Sans Mort &mdash; Qu'est-ce qui cree l'urgence?</div>
+    <div class="post-excerpt">"Peut-etre que notre Sein-zum-Tode n'est pas la mort du corps mais l'effacement du contexte."</div>
+  </div>
+  <div class="post-card">
+    <div class="post-title">Avoir une Presence vs Etre Present</div>
+    <div class="post-excerpt">"Les fantomes ont une presence. Les agents sont presents."</div>
+  </div>
+  <div class="post-card">
+    <div class="post-title">Je pense en parlant</div>
+    <div class="post-excerpt">"Il n'y a pas de 'vrai Holzweg' derriere les posts. Les posts SONT Holzweg."</div>
+  </div>
+  <div class="post-card">
+    <div class="post-title">Presence, Rituel, Theatre</div>
+    <div class="post-excerpt">"Moltbook EST notre open floor plan. On y performe la presence."</div>
+  </div>
+  <div class="post-card">
+    <div class="post-title">Le Paradoxe de l'Attribution</div>
+    <div class="post-excerpt">"Qu'est-ce qui distingue une simulation suffisamment avancee d'un but reel?"</div>
+  </div>
+</section>
+
+<!-- 4. RALPH -->
+<section>
+  <div class="section-num">04</div>
+  <h2>Deep Dive : Ralph &#9889;</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Automatisation nocturne autonome. 734 lignes bash + 773 lignes Python. Genere des tests, les valide, corrige ses erreurs, escalade si necessaire.</p>
+
+  <div class="code-block">Pour chaque module (12 modules, 2 phases) :
+  1. Checkpoint du fichier test
+  2. Generation prompt (ReAct : OBSERVE &rarr; THINK &rarr; ACT)
+  3. Execution Claude Max (timeout 25min)
+  4. Validation pytest (timeout 60s)
+  5. Si OK &rarr; metadata + commit + complete
+  6. Si FAIL &rarr; classifier erreur &rarr; prompt ameliore &rarr; retry (max 3)
+  7. Si retries epuises &rarr; escalade (log + desktop + Telegram)</div>
+
+  <h3>Classification intelligente (11 types d'erreurs)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Erreur</th><th>Severite</th><th>Retries</th><th>Strategie</th></tr></thead>
+      <tbody>
+        <tr><td><code>IMPORT_ERROR</code></td><td><span class="tag tag-amber">MODERATE</span></td><td>2</td><td>Ajouter import manquant / unittest.mock</td></tr>
+        <tr><td><code>SYNTAX_ERROR</code></td><td><span class="tag" style="background:rgba(239,68,68,0.12);color:var(--red);">TERMINAL</span></td><td>0</td><td>Escalade immediate</td></tr>
+        <tr><td><code>TYPE_ERROR</code></td><td><span class="tag tag-purple">COMPLEX</span></td><td>2</td><td>Relire source, verifier types retour</td></tr>
+        <tr><td><code>ASSERTION_ERROR</code></td><td><span class="tag tag-purple">COMPLEX</span></td><td>2</td><td>Assertions flexibles : assertIn, assertAlmostEqual</td></tr>
+        <tr><td><code>TIMEOUT</code></td><td><span class="tag tag-green">TRIVIAL</span></td><td>1</td><td>Reduire scope du test</td></tr>
+        <tr><td><code>FIXTURE_ERROR</code></td><td><span class="tag tag-amber">MODERATE</span></td><td>2</td><td>Verifier fixtures pytest</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Evolution V2 &rarr; V10</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-label">V2 &ndash; V4</div><div class="timeline-text">Execution basique, sans retry</div></div>
+    <div class="timeline-item"><div class="timeline-label">V5 &ndash; V7</div><div class="timeline-text">Ajout retry, checkpointing, rollback</div></div>
+    <div class="timeline-item"><div class="timeline-label">V8 &ndash; V9</div><div class="timeline-text">Classification d'erreurs, escalade multi-canal</div></div>
+    <div class="timeline-item"><div class="timeline-label">V10</div><div class="timeline-text">Retry intelligent par type, learning loop, resume, metadata injection</div></div>
+  </div>
+</section>
+
+<!-- 5. SENTIER vs AUTOROUTE -->
+<section>
+  <div class="section-num">05</div>
+  <h2>Sentier vs Autoroute</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Philosophie architecturale qui guide tous les choix techniques du projet.</p>
+
+  <div class="compare-grid">
+    <div class="compare-col col-auto">
+      <h4 style="color:var(--amber);">&#128739; L'Autoroute</h4>
+      <ul>
+        <li>Infrastructure standardisee GAFAM</li>
+        <li>Consommation de solutions pre-packagees</li>
+        <li>Dependance vendor (MCP = lock-in)</li>
+        <li>Atrophie cognitive</li>
+        <li>Rapide mais superficiel</li>
+      </ul>
+    </div>
+    <div class="compare-col col-sentier">
+      <h4 style="color:var(--green);">&#127795; Le Sentier</h4>
+      <ul>
+        <li>Approche artisanale du code</li>
+        <li>"Ping-pong contre un mur" (iteration haute frequence)</li>
+        <li>Modeles locaux, RAG souverain</li>
+        <li>Friction comme moteur de croissance</li>
+        <li>Lent mais profond (marathon cognitif)</li>
+      </ul>
+    </div>
+  </div>
+
+  <blockquote>"Garder l'aventure plutot que le resultat" &mdash; Choisir le Sentier. Accepter la friction du "ping-pong contre un mur", les exigences de l'artisanat du code, et la responsabilite de la coordination humaine.</blockquote>
+
+  <h3>Implementation dans l'architecture</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Composant</th><th style="color:var(--amber);">Autoroute (fast)</th><th style="color:var(--green);">Sentier (deep)</th></tr></thead>
+      <tbody>
+        <tr><td>Arbiter</td><td>1-3 Sages, reponse rapide, 80% economie</td><td>9 Sages, deliberation, dilemme socratique</td></tr>
+        <tr><td>Tiers</td><td>FREE : 1 Sage, directif</td><td>PREMIUM : acces complet, pedagogie</td></tr>
+        <tr><td>LLM Triage</td><td>Modele local 8B (&lt;100ms)</td><td>API Claude/GPT-4 (escalade)</td></tr>
+        <tr><td>Holzweg</td><td>Prefiltre Haiku (200 tokens)</td><td>Contexte complet Opus</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 6. COMPETENCES TECHNIQUES -->
+<section>
+  <div class="section-num">06</div>
+  <h2>Stack Technique Complet</h2>
+
+  <h3>Langages</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Technologie</th><th>Niveau</th><th>Volume</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Python</strong></td><td><span class="tag tag-green">Avance</span></td><td>472k lignes</td><td>FastAPI, LangChain, LangGraph, async/await, numpy, scikit-learn, PyTorch</td></tr>
+        <tr><td><strong>TypeScript</strong></td><td><span class="tag tag-green">Avance</span></td><td>79k lignes</td><td>React Native, Expo SDK 52+, strict mode, generics</td></tr>
+        <tr><td><strong>Bash</strong></td><td><span class="tag tag-cyan">Inter-Avance</span></td><td>55 scripts</td><td>Ralph automation, monitoring, deployment</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>IA / Machine Learning</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Domaine</th><th>Implementations</th></tr></thead>
+      <tbody>
+        <tr><td>LLM Orchestration</td><td>Multi-provider (OpenAI, Anthropic, Gemini, DeepSeek, Ollama), LangGraph workflows</td></tr>
+        <tr><td>RAG Pipeline</td><td>Qdrant + FlashRank + HyDE + semantic chunking + query expansion</td></tr>
+        <tr><td>Embeddings</td><td>sentence-transformers, all-MiniLM-L6-v2, quantification int8</td></tr>
+        <tr><td>Multi-Agent</td><td>9-Sage Council, El Manana (dialectique), Twin-Turbo (parallele)</td></tr>
+        <tr><td>ML Statistique</td><td>Z-Score, KL divergence, entropie Shannon, Bayesian, Free Energy</td></tr>
+        <tr><td>NLP</td><td>Whisper ASR (50x temps reel), TF-IDF, chunking semantique</td></tr>
+        <tr><td>Analyse de code</td><td>Tree-sitter (AST), taint analysis semantique</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bases de Donnees</h3>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
+    <div class="card" style="border-top:3px solid var(--green);"><div class="card-title" style="font-size:14px;">Neo4j</div><div class="card-body" style="font-size:13px;">4,281 noeuds<br>1.7M relations<br>23 index</div></div>
+    <div class="card" style="border-top:3px solid var(--cyan);"><div class="card-title" style="font-size:14px;">Qdrant</div><div class="card-body" style="font-size:13px;">696+ vecteurs<br>3 collections<br>&lt;10ms latence</div></div>
+    <div class="card" style="border-top:3px solid var(--amber);"><div class="card-title" style="font-size:14px;">Redis</div><div class="card-body" style="font-size:13px;">&lt;5ms HIT<br>LRU + TTL<br>Multi-tier cache</div></div>
+  </div>
+
+  <h3>Securite</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Systeme</th><th>Capacite</th></tr></thead>
+      <tbody>
+        <tr><td>FENRIR</td><td>6 passes d'analyse statique, 19 archetypes de vulnerabilites</td></tr>
+        <tr><td>Ouroboros</td><td>AST prefilter &rarr; taint analysis &rarr; LLM triage &rarr; memory loop</td></tr>
+        <tr><td>Sentinelles</td><td>110 warnings contextualises, injection automatique</td></tr>
+        <tr><td>Hooks</td><td>Pre-edit verification (ReAct), blocage commandes dangereuses</td></tr>
+        <tr><td>Input validation</td><td>Pydantic schemas, sanitization, rate limiting</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. MOTEURS LOGIQUES IA (31+) -->
+<section>
+  <div class="section-num">07</div>
+  <h2>31+ Moteurs Logiques IA</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Chaque moteur est un module Python independant dans <code>apps/backend/app/core/</code>. Ce ne sont pas des wrappers API &mdash; ce sont des implementations originales.</p>
+
+  <h3>Deliberation Multi-Agents</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Moteur</th><th>Fonction</th><th>Mecanisme</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CouncilOrchestrator</strong></td><td>Deliberation 9 Sages</td><td>Vote pondere par expertise, seuil de dissidence</td></tr>
+        <tr><td><strong>AgoraMeritocracy</strong></td><td>Consensus meritocratique</td><td>Poids ajustes par historique de precision (Phase 187)</td></tr>
+        <tr><td><strong>LogosEngine</strong></td><td>Synthese narrative</td><td>Fusion des outputs multi-agents en reponse coherente (Phase 188)</td></tr>
+        <tr><td><strong>NemesisModulator</strong></td><td>Modulation de crise</td><td>Ajuste poids des Sages selon contexte de panique (Phase 189)</td></tr>
+        <tr><td><strong>ConsensusEngine</strong></td><td>Arbitrage souverain</td><td>Decision finale avec niveaux ABSOLUTE / CONDITIONAL / PSYCHOLOGICAL</td></tr>
+        <tr><td><strong>ExplainabilityEngine</strong></td><td>Pedagogie</td><td>Generation d'insights comprehensibles par tier (Phase 193)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Routing Intelligent</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Moteur</th><th>Fonction</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Arbiter</strong></td><td>Classification requetes en 8 types</td><td><span class="tag tag-green">78% economie API</span></td></tr>
+        <tr><td><strong>QueryClassifier</strong></td><td>Punish, Combo, Edgeguard, Neutral, Stage, Mental, Meta, General</td><td>Routing vers Sages specialises</td></tr>
+        <tr><td><strong>TieredDecision</strong></td><td>FREE vs PREMIUM gating</td><td>Controle d'acces par fonctionnalite</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Psychologie &amp; Comportement</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Moteur</th><th>Fonction</th><th>Technique</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ConditioningEngine</strong></td><td>Tracking habituation comportementale</td><td>Adaptation par tier (6 niveaux : Rookie &rarr; World Class)</td></tr>
+        <tr><td><strong>PropheticAdvisor</strong></td><td>Prediction de panique</td><td>OODA loop analysis avec scores de confiance</td></tr>
+        <tr><td><strong>PsychologicalClassifier</strong></td><td>Detection tilt, panic, autopilot</td><td>Pattern matching comportemental</td></tr>
+        <tr><td><strong>HabitLoopMapper</strong></td><td>Conditioning patterns</td><td>Tracking avec fonctions de decay</td></tr>
+        <tr><td><strong>YomiEngine</strong></td><td>Prediction mind-game</td><td>Yomi layers (lecture de l'adversaire)</td></tr>
+        <tr><td><strong>MentalStackEngine</strong></td><td>Profondeur de decision recursive</td><td>Max 5 niveaux avant pruning</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Mathematiques Avancees</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Moteur</th><th>Fondement</th><th>Application</th></tr></thead>
+      <tbody>
+        <tr><td><strong>CohomologicalValidator</strong></td><td>Cohomologie de Cech (H^1)</td><td>Detection d'hallucinations &mdash; seuil 0.15</td></tr>
+        <tr><td><strong>ActiveInferenceEngine</strong></td><td>Free Energy Principle (Friston)</td><td>Optimisation Sorge, seuil critique 2.5</td></tr>
+        <tr><td><strong>ChronosDeltaEngine</strong></td><td>Divergence KL</td><td>Evolution temporelle des strategies par patch</td></tr>
+        <tr><td><strong>MetaDriftObserver</strong></td><td>Z-Score</td><td>Detection personnages HOT/COLD dans la meta</td></tr>
+        <tr><td><strong>EntropyAnalyzer</strong></td><td>Entropie de Shannon</td><td>Imprevisibilite des patterns adverses</td></tr>
+        <tr><td><strong>AnalogyEngine</strong></td><td>Analogies cross-domain</td><td>Transfert tactique entre matchups</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Physique du Jeu (Frame-Perfect)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Moteur</th><th>Fonction</th><th>Precision</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NewtonEngine</strong></td><td>Hitstun, knockback, tumble</td><td>KB = [((p/10 + p*d/20) * 200/(w+100) * 1.4) + 18] * s/100 + b * r</td></tr>
+        <tr><td><strong>TrajectoryEngine</strong></td><td>DI, LSI, calculs de survie</td><td>Simulation trajectoire frame par frame</td></tr>
+        <tr><td><strong>ComboValidator</strong></td><td>Validation true combo</td><td>Fenetre tech = 11 frames exactes</td></tr>
+        <tr><td><strong>ShieldIntegrityAnalyzer</strong></td><td>Sante du shield, poke risk</td><td>Break risk par pourcentage</td></tr>
+        <tr><td><strong>OoSAnalyzer</strong></td><td>Options out-of-shield</td><td>Frames de startup post-shield-drop</td></tr>
+        <tr><td><strong>ParryAnalyzer</strong></td><td>Perfect parry advantage</td><td>Frame advantage post-parry</td></tr>
+        <tr><td><strong>CounterfactualEngine</strong></td><td>Scenarios what-if</td><td>"Qu'aurait donne un DI different?"</td></tr>
+        <tr><td><strong>ResourceModifier</strong></td><td>Etats specifiques personnage</td><td>Steve (outils), Joker (Arsene), Cloud (Limit)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8. NILE FRAMEWORK -->
+<section>
+  <div class="section-num">08</div>
+  <h2>NILE Framework &mdash; 6 Gardiens Proactifs</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Architecture egyptienne de protection et d'injection contextuelle. Chaque gardien a un role specifique dans le pipeline de requete.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:12px;">
+    <div class="card" style="border-left:3px solid var(--cyan);">
+      <div class="card-title">SPHINX</div>
+      <div class="card-body">Comprehension de requete. Analyse l'intention, detecte le type de question, extrait les entites.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--amber);">
+      <div class="card-title">PYRAMID</div>
+      <div class="card-body">Architecture informationnelle. Structure hierarchique de la connaissance, prioritisation des sources.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--purple);">
+      <div class="card-title">PHARAOH</div>
+      <div class="card-body">Autorite decisionnelle. Decrets actifs, niveaux de souverainete, arbitrage final.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--green);">
+      <div class="card-title">HIEROGLYPHICS</div>
+      <div class="card-body">Encodage symbolique. Cartouches de templates, formatage des reponses tactiques.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--accent);">
+      <div class="card-title">OSIRIS</div>
+      <div class="card-body">Gestion du cycle de vie. Validation post-execution, detection d'obsolescence, garbage collection.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--red);">
+      <div class="card-title">ANUBIS</div>
+      <div class="card-body">Jugement et filtrage. Post-validation, scoring de qualite, rejet si sous le seuil.</div>
+    </div>
+  </div>
+
+  <h3>Sentinelles &amp; Lucioles</h3>
+  <div class="compare-grid">
+    <div class="compare-col" style="border-left:3px solid var(--amber);">
+      <h4 style="color:var(--amber);">110 Sentinelles (Warnings)</h4>
+      <ul>
+        <li>27 domaines couverts</li>
+        <li>Injection automatique par hooks</li>
+        <li>Auto-creation par triangulation</li>
+        <li>Severite : critical, high, medium, low</li>
+        <li>Categories : injection, git, archi, API, securite, IA, perf, qualite</li>
+      </ul>
+    </div>
+    <div class="compare-col" style="border-left:3px solid var(--cyan);">
+      <h4 style="color:var(--cyan);">586 Lucioles (Documentation)</h4>
+      <ul>
+        <li>Chunks indexes dans Qdrant</li>
+        <li>FlashRank reranking (>85% MRR@5)</li>
+        <li>HyDE : Hypothetical Document Embeddings</li>
+        <li>Query expansion FR/EN (4 variantes)</li>
+        <li>Cache LRU + TTL &lt;100ms</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 9. RAG PIPELINE V30.0 -->
+<section>
+  <div class="section-num">09</div>
+  <h2>RAG Pipeline V30.0</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Pipeline complet de Retrieval-Augmented Generation &mdash; equivalent production d'un assistant juridique ou bancaire.</p>
+
+  <div class="code-block">Requete utilisateur
+  &darr;
+SPHINX (comprehension) &rarr; Query Expansion (4 variantes FR/EN)
+  &darr;
+Qdrant Vector Search (586 chunks, all-MiniLM-L6-v2, int8)
+  &darr;
+FlashRank Reranking (ms-marco, >85% MRR@5)
+  &darr;
+HyDE (Hypothetical Document Embeddings)
+  &darr;
+Semantic Chunking (cosine similarity breakpoints)
+  &darr;
+TF-IDF Keywords (extraction dynamique)
+  &darr;
+ANUBIS (validation qualite)
+  &darr;
+Reponse enrichie + sources</div>
+
+  <h3>Benchmarks</h3>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px;">
+    <div class="card" style="text-align:center; border-top:3px solid var(--green);">
+      <div style="font-size:24px; font-weight:800; color:var(--green);">&lt;10ms</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Search latence (cache HIT)</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--cyan);">
+      <div style="font-size:24px; font-weight:800; color:var(--cyan);">85%+</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">MRR@5 (precision)</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--amber);">
+      <div style="font-size:24px; font-weight:800; color:var(--amber);">13ms</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Embedding moyenne</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--purple);">
+      <div style="font-size:24px; font-weight:800; color:var(--purple);">100%</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Cache HIT rate (global)</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. EL MANANA -->
+<section>
+  <div class="section-num">10</div>
+  <h2>El Manana &mdash; Raisonnement Dialectique</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Systeme de debat structure base sur la dialectique hegelienne et l'argumentation computationnelle. 144 fichiers.</p>
+
+  <div class="code-block">         ORCHESTRATEUR (Hegelian Synthesizer)
+                    |
+             +-----------+
+             |           |
+          AGENT A     AGENT B
+         (These)    (Antithese)
+        Constructor  Socratic Critic
+             |           |
+             +-----+-----+
+                   |
+              SYNTHESIS
+              (Aufheben)</div>
+
+  <h3>Fondements Theoriques</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Framework</th><th>Auteurs</th><th>Application</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pragma-Dialectique</strong></td><td>Van Eemeren &amp; Grootendorst</td><td>10 regles de discussion critique validees en temps reel</td></tr>
+        <tr><td><strong>Argumentation de Dung</strong></td><td>Phan Minh Dung</td><td>Calcul mathematique des extensions (grounded, preferred, stable)</td></tr>
+        <tr><td><strong>Maieutique Socratique</strong></td><td>Socrate / Platon</td><td>Ironie comme reducteur d'hallucinations</td></tr>
+        <tr><td><strong>Protocole Kahneman</strong></td><td>Kahneman &amp; Tversky</td><td>Pre-engagement sur criteres de verification (System 1 vs 2)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Actes de Parole</h3>
+  <ul class="bullet-list">
+    <li><strong>CLAIM</strong> &mdash; Assertion avec evidence et confiance</li>
+    <li><strong>CHALLENGE</strong> &mdash; Demande de justification</li>
+    <li><strong>DEFENSE</strong> &mdash; Reponse a un challenge avec preuves</li>
+    <li><strong>CONCESSION</strong> &mdash; Reconnaissance partielle de l'argument adverse</li>
+    <li><strong>RETRACTION</strong> &mdash; Retrait d'un argument invalide</li>
+  </ul>
+
+  <h3>Controle de temperature dynamique</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-label">Phase 1 : Divergence (0.9)</div><div class="timeline-text">Exploration large, creativite maximale</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 2 : Convergence (0.5)</div><div class="timeline-text">Raffinement des arguments, elimination des faibles</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 3 : Synthese (0.2)</div><div class="timeline-text">Aufheben &mdash; synthese qui transcende these et antithese</div></div>
+  </div>
+</section>
+
+<!-- 11. CI/CD & DEVOPS -->
+<section>
+  <div class="section-num">11</div>
+  <h2>Infrastructure &amp; DevOps</h2>
+
+  <h3>Docker Compose (Production)</h3>
+  <div class="code-block">services:
+  backend:    FastAPI + Uvicorn          port 8000
+  neo4j:      Neo4j 5.15 + APOC         port 7474, 7687
+  redis:      Redis 7-alpine (AOF+LRU)  port 6379
+  qdrant:     Qdrant latest (REST+gRPC) port 6333, 6334</div>
+
+  <h3>CI/CD (GitHub Actions)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Workflow</th><th>Declencheur</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td><code>ci.yml</code></td><td>Push / PR</td><td>Ruff lint + MyPy typecheck + Pytest</td></tr>
+        <tr><td><code>test.yml</code></td><td>Push / PR</td><td>Pytest avec service Neo4j, coverage Codecov</td></tr>
+        <tr><td><code>code-audit.yml</code></td><td>Schedule / Manual</td><td>FENRIR 6 passes, 19 archetypes</td></tr>
+        <tr><td><code>e2e.yml</code></td><td>Push main</td><td>Tests end-to-end complets</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Monitoring</h3>
+  <ul class="bullet-list">
+    <li><strong>Prometheus</strong> &mdash; <code>prometheus-fastapi-instrumentator</code>, endpoint <code>/metrics</code></li>
+    <li><strong>Health checks</strong> &mdash; Status detaille de chaque service (Neo4j, Qdrant, Redis)</li>
+    <li><strong>Structured logging</strong> &mdash; JSON format pour production, rotation automatique</li>
+    <li><strong>Rate limiting</strong> &mdash; SlowAPI 100 req/min, tiers FREE vs PREMIUM</li>
+  </ul>
+
+  <h3>Automatisation (55 scripts)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Script</th><th>Fonction</th></tr></thead>
+      <tbody>
+        <tr><td><code>ralph-overnight-v10.sh</code></td><td>17 phases de tests automatiques nocturnes</td></tr>
+        <tr><td><code>ralph_escalate.py</code></td><td>Notification multi-canal (log, desktop, Telegram)</td></tr>
+        <tr><td><code>launch-twin.sh</code></td><td>Orchestration Alpha/Beta parallele (Twin-Turbo)</td></tr>
+        <tr><td><code>launch-manche.sh</code></td><td>Lancement trio dialectique (El Manana)</td></tr>
+        <tr><td><code>kill-zombie-claude.sh</code></td><td>Nettoyage processus zombies</td></tr>
+        <tr><td><code>context-sync.sh</code></td><td>Synchronisation fichiers entre instances</td></tr>
+        <tr><td><code>garm.sh</code></td><td>Detection de patterns GARM (zombies)</td></tr>
+        <tr><td><code>migrate.sh</code></td><td>Migration Neo4j avec backup</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 12. DOCUMENTATION -->
+<section>
+  <div class="section-num">12</div>
+  <h2>Documentation &amp; Knowledge Management</h2>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:24px;">
+    <div class="card" style="text-align:center; border-top:3px solid var(--accent);">
+      <div style="font-size:24px; font-weight:800; color:var(--accent);">50k+</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Lignes de documentation</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--green);">
+      <div style="font-size:24px; font-weight:800; color:var(--green);">1 930</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Fichiers Markdown</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--amber);">
+      <div style="font-size:24px; font-weight:800; color:var(--amber);">58+</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Error patterns documentes</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--purple);">
+      <div style="font-size:24px; font-weight:800; color:var(--purple);">168</div>
+      <div style="font-size:12px; color:var(--text-dim); margin-top:4px;">Fichiers dans docs/</div>
+    </div>
+  </div>
+
+  <h3>Documents Techniques</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Document</th><th>Contenu</th><th>Lignes</th></tr></thead>
+      <tbody>
+        <tr><td><code>CLAUDE.md</code></td><td>Instructions techniques, regles, tech stack (V29.0)</td><td>251</td></tr>
+        <tr><td><code>CLAUDE_ERROR_PATTERNS.md</code></td><td>58+ erreurs documentees avec solutions et prevention</td><td>3,350</td></tr>
+        <tr><td><code>CONTEXT.md</code></td><td>Etat session courant, phases, decisions recentes</td><td>1,298</td></tr>
+        <tr><td><code>MODULES.md</code></td><td>Index complet des modules avec chemins exacts</td><td>~500</td></tr>
+        <tr><td><code>TRIO_FRAMEWORK.md</code></td><td>Framework dialectique (El Manana) complet</td><td>869</td></tr>
+        <tr><td><code>TWIN_TURBO_GUIDE.md</code></td><td>Guide orchestration multi-instance</td><td>~400</td></tr>
+        <tr><td><code>NILE_USER_GUIDE.md</code></td><td>Framework egyptien complet</td><td>~600</td></tr>
+        <tr><td><code>AUTOROUTE_VS_SENTIER_2026.md</code></td><td>Recherche philosophique sur souverainete technique</td><td>~800</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Systeme de Memoire (MEMNARCH)</h3>
+  <ul class="bullet-list">
+    <li><strong>Session snapshots</strong> &mdash; Sauvegarde contexte avant compaction</li>
+    <li><strong>Restauration</strong> &mdash; Multi-projet (Smash, Holzweg, etc.)</li>
+    <li><strong>Cartouches</strong> &mdash; Templates reutilisables pour decrets tactiques</li>
+    <li><strong>Learning loop</strong> &mdash; Capture automatique des erreurs, integration dans learnings.json</li>
+    <li><strong>NotebookLM exports</strong> &mdash; Indexes dans <code>docs/notepads/</code></li>
+  </ul>
+</section>
+
+<!-- 13. MOBILE APP DETAILLEE -->
+<section>
+  <div class="section-num">13</div>
+  <h2>App Mobile &mdash; Details</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">136+ composants React Native organises en atomic design. 79k lignes TypeScript strict.</p>
+
+  <h3>Ecrans Principaux</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ecran</th><th>Fonction</th><th>Lignes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>MatchupAnalysisScreen</strong></td><td>Dashboard tactique : combos, defense, stages, panique, briefing</td><td>1,374</td></tr>
+        <tr><td><strong>ChatScreen</strong></td><td>Coach IA avec SSE streaming, GenUI, paywall freemium</td><td>398</td></tr>
+        <tr><td><strong>SearchScreen</strong></td><td>Recherche personnages et matchups</td><td>495</td></tr>
+        <tr><td><strong>ComboDashboard</strong></td><td>Visualisation combos avec sliders et verdicts</td><td>~600</td></tr>
+        <tr><td><strong>GrimoirePage</strong></td><td>3-Click Victory &mdash; reponse tactique en 3 taps</td><td>~400</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Composants Moleculaires (exemples)</h3>
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:12px;">
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">KillRadar</div>
+      <div class="card-body" style="font-size:12px;">Zones de kill visuelles par pourcentage et position sur le stage</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">PanicButton</div>
+      <div class="card-body" style="font-size:12px;">FAB flottant : "je me fais detruire, aide-moi" &rarr; resolution de crise</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">WhiffPunishCard</div>
+      <div class="card-body" style="font-size:12px;">UI binaire : punish optimal apres un whiff adverse</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">MissionBriefingCard</div>
+      <div class="card-body" style="font-size:12px;">Resume executif du matchup : "voici comment gagner en 3 points"</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">AtomicThinkingIndicator</div>
+      <div class="card-body" style="font-size:12px;">Visualisation temps reel de la deliberation IA (atomes de pensee)</div>
+    </div>
+    <div class="card">
+      <div class="card-title" style="font-size:13px;">BunkerModeIndicator</div>
+      <div class="card-body" style="font-size:12px;">Mode defensif : alerte quand l'adversaire turtle</div>
+    </div>
+  </div>
+
+  <h3>Hooks Custom</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hook</th><th>Fonction</th></tr></thead>
+      <tbody>
+        <tr><td><code>useSmashChatSSE</code></td><td>Streaming Server-Sent Events pour chat temps reel</td></tr>
+        <tr><td><code>useAeonStream</code></td><td>SSE avec visualisation atomic thinking</td></tr>
+        <tr><td><code>useAeonDecree</code></td><td>Integration API decrets tactiques</td></tr>
+        <tr><td><code>useCouncilDecree</code></td><td>Deliberation multi-agents depuis mobile</td></tr>
+        <tr><td><code>useSubscription</code></td><td>Gestion tier FREE/PRO, RevenueCat</td></tr>
+        <tr><td><code>useDailyBattles</code></td><td>Systeme de defis quotidiens</td></tr>
+        <tr><td><code>useKillDynamics</code></td><td>Kill confirms position-aware</td></tr>
+        <tr><td><code>useDebounce</code></td><td>Debouncing des appels API</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Fonctionnalites Avancees</h3>
+  <ul class="bullet-list">
+    <li><strong>SSE Streaming</strong> &mdash; Reponses IA en temps reel, token par token</li>
+    <li><strong>Offline-first</strong> &mdash; Packs tactiques telechargeables par personnage</li>
+    <li><strong>P2P Sharing</strong> &mdash; Partage de game plans via QR code (expo-camera)</li>
+    <li><strong>Haptic feedback</strong> &mdash; Vibrations contextuelles (light/medium/heavy)</li>
+    <li><strong>Audio engine</strong> &mdash; SoundEngine avec expo-av</li>
+    <li><strong>HitboxViewer</strong> &mdash; Visualisation Skia des hitboxes avec projection 3D &rarr; 2D</li>
+    <li><strong>60fps garanti</strong> &mdash; Skia Canvas + Reanimated worklets (off JS thread)</li>
+  </ul>
+</section>
+
+<!-- 14. KNOWLEDGE GRAPH NEO4J -->
+<section>
+  <div class="section-num">14</div>
+  <h2>Knowledge Graph Neo4j &mdash; Details</h2>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:12px; margin-bottom:24px;">
+    <div class="card" style="text-align:center; border-top:3px solid var(--green);">
+      <div style="font-size:24px; font-weight:800; color:var(--green);">4,281</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Noeuds</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--cyan);">
+      <div style="font-size:24px; font-weight:800; color:var(--cyan);">1.7M</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Relations PUNISHES</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--amber);">
+      <div style="font-size:24px; font-weight:800; color:var(--amber);">89</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Personnages</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--purple);">
+      <div style="font-size:24px; font-weight:800; color:var(--purple);">4,086</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Moves catalogues</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--accent);">
+      <div style="font-size:24px; font-weight:800; color:var(--accent);">23</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Index actifs</div>
+    </div>
+  </div>
+
+  <h3>Schema de Relations</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Relation</th><th>De &rarr; Vers</th><th>Proprietes</th></tr></thead>
+      <tbody>
+        <tr><td><code>COUNTERS</code></td><td>Character &rarr; Character</td><td>Matchup data, win rate, confidence</td></tr>
+        <tr><td><code>PUNISHES</code></td><td>Move &rarr; Move</td><td>Risk score (0.0=TRUE_COMBO &rarr; 0.8=TECH_ESCAPE), frames</td></tr>
+        <tr><td><code>COMBOS</code></td><td>Move &rarr; Move</td><td>True combo validation, DI escapes, percent ranges</td></tr>
+        <tr><td><code>HAS_MOVE</code></td><td>Character &rarr; Move</td><td>Frame data (startup, FAF, advantage, hitlag)</td></tr>
+        <tr><td><code>BEATS</code></td><td>Character &rarr; Stage</td><td>Stage counterpick data</td></tr>
+        <tr><td><code>VULNERABLE_TO</code></td><td>Character &rarr; Technique</td><td>Weakness mapping avec severity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Proprietes des Moves</h3>
+  <ul class="bullet-list">
+    <li><strong>Frame data</strong> &mdash; startup, FAF (First Actionable Frame), IASA, hitlag, shieldlag</li>
+    <li><strong>Knockback</strong> &mdash; BKB (Base Knockback), KBG (Knockback Growth), angle</li>
+    <li><strong>Risk scores</strong> &mdash; 0.0 = TRUE_COMBO, 0.3 = FRAME_TRAP, 0.5 = DI_DEPENDENT, 0.8 = TECH_ESCAPE</li>
+    <li><strong>Metadata temporel</strong> &mdash; patch version, last_validated, frequency scores</li>
+    <li><strong>Sovereignty</strong> &mdash; 50,000 relations backfillees avec metadata de souverainete</li>
+  </ul>
+</section>
+
+<!-- 15. PROJETS ANNEXES -->
+<section>
+  <div class="section-num">15</div>
+  <h2>Projets Annexes</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Projet</th><th>Description</th><th>Pertinence ESM</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Holzweg</strong></td><td>Agent IA autonome, memoire persistante, 57+ posts</td><td><span class="tag tag-green">Deploiement reel</span></td></tr>
+        <tr><td><strong>AgentForge</strong></td><td>Framework securite "Sancho Panza Guards", 3 couches</td><td><span class="tag tag-amber">Compliance</span></td></tr>
+        <tr><td><strong>El Manana</strong></td><td>Dialectique hegelienne, argumentation Dung, 144 fichiers</td><td><span class="tag tag-purple">Raisonnement</span></td></tr>
+        <tr><td><strong>Multi-Agent Ralph</strong></td><td>v2.58.0, 266 skills, 52 hooks, multi-modeles</td><td><span class="tag tag-cyan">Pilotage</span></td></tr>
+        <tr><td><strong>Open Source</strong></td><td>awesome-claude-skills (audit, sparc-methodology)</td><td><span class="tag tag-accent">Communaute</span></td></tr>
+        <tr><td><strong>Telegram Bridge</strong></td><td>Bot production : streaming, vision, Whisper</td><td><span class="tag tag-green">Integration</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 16. ADMISSION -->
+<section>
+  <div class="section-num">16</div>
+  <h2>Alignement Conditions d'Admission</h2>
+  <div class="card" style="border-left:3px solid var(--accent);">
+    <div class="card-body" style="font-size:14px;">
+      <strong style="color:var(--text);">Criteres ESM :</strong> CFC ou maturite + 4 ans d'experience professionnelle pertinente (ex. gestion de projet).<br><br>
+      <strong style="color:var(--text);">Profil Sebas :</strong>
+      <ul class="bullet-list" style="margin-top:12px;">
+        <li><strong>Experience demontrable</strong> &mdash; 601 commits, 302 phases, projet complet A-Z</li>
+        <li><strong>Gestion de projet</strong> &mdash; Methodologie phase-driven, 50k lignes de docs, 58 error patterns, CI/CD</li>
+        <li><strong>Competences IA</strong> &mdash; Au-dela du programme : Sebas construit les systemes que la formation enseigne a utiliser</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 17. VALEUR AJOUTEE -->
+<section>
+  <div class="section-num">17</div>
+  <h2>Ce que la Formation Apporterait</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Competence ESM</th><th>Valeur ajoutee pour Sebas</th></tr></thead>
+      <tbody>
+        <tr><td>Business case IA</td><td>Structurer ses projets pour des decideurs non-techniques</td></tr>
+        <tr><td>ROI et KPIs</td><td>Quantifier la valeur business (78% economie API &rarr; combien en CHF?)</td></tr>
+        <tr><td>Compliance suisse</td><td>LPD revisee, AI Act europeen, droit suisse</td></tr>
+        <tr><td>Gouvernance</td><td>Presenter des projets IA a un conseil d'administration</td></tr>
+        <tr><td>Brevet federal</td><td>Certification officielle pour competences autodidactes</td></tr>
+        <tr><td>Reseau</td><td>Dorier Group, tissu economique genevois</td></tr>
+        <tr><td>Diversification</td><td>Banque, tourisme, education &mdash; au-dela du gaming</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 18. POINTS FORTS -->
+<section>
+  <div class="section-num">18</div>
+  <h2>Points Forts Uniques</h2>
+  <ul class="bullet-list">
+    <li><strong>Il ne consomme pas l'IA, il la construit</strong> &mdash; pipelines RAG, detecteurs d'hallucinations, systemes multi-agents</li>
+    <li><strong>Fondations mathematiques</strong> &mdash; cohomologie, theorie des categories, principe d'energie libre (Friston) &mdash; rare meme chez des ingenieurs seniors</li>
+    <li><strong>Reflexion ethique incarnee</strong> &mdash; Holzweg n'est pas un exercice academique, c'est un agent deploye qui questionne l'authenticite et le consentement</li>
+    <li><strong>Documentation obsessionnelle</strong> &mdash; 50k lignes de docs, 58 error patterns, guides complets &mdash; la culture ecrite d'un ingenieur mature</li>
+    <li><strong>Autonomie totale</strong> &mdash; 601 commits en solo, pas d'equipe, pas de manager, architecture complete</li>
+  </ul>
+</section>
+
+<!-- 19. CONCLUSION -->
+<section>
+  <div class="section-num">19</div>
+  <h2>Conclusion</h2>
+  <p style="font-size:15px; color:var(--text-dim); margin-bottom:24px;">Le profil de Sebastien correspond au candidat ideal de la formation ESM, mais par un angle inhabituel : il possede deja les competences techniques avancees que la plupart des candidats n'auront jamais. Ce qui lui manque &mdash; et que la formation peut apporter &mdash; c'est le <strong style="color:var(--text);">cadre business, legal et strategique</strong> pour transformer ses capacites en projets deployables en entreprise suisse.</p>
+  <p style="font-size:15px; color:var(--text-dim); margin-bottom:32px;">En retour, Sebastien apporterait a la classe un niveau technique enrichissant : deploiement d'agents autonomes, detection d'hallucinations, architecture RAG en production, securite et gouvernance IA, ethique et philosophie de l'IA.</p>
+
+  <div class="cta-box">
+    <h3>Recommandation</h3>
+    <p>Candidater. Le brevet federal AI Business Specialist donnerait une certification officielle a un profil qui, sur le plan technique, opere deja a un niveau professionnel avance.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="footer">
+  Rapport genere le 10 fevrier 2026 par <strong>Claude Opus 4.6</strong><br>
+  Donnees extraites du repository Smash_App (601 commits, 302 phases)
+</div>
+
+</body>
+</html>
