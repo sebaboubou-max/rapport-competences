@@ -848,9 +848,249 @@
   </div>
 </section>
 
-<!-- 9. RAG PIPELINE V30.0 -->
+<!-- 9. LICHTUNG -->
 <section>
   <div class="section-num">09</div>
+  <h2>Lichtung &mdash; Pre-Reflexion Obligatoire</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Systeme de pre-reflexion architecturale qui force la pensee deliberee (System 2) avant toute action significative. Nomme d'apres le concept heideggérien de "la clairiere" ou la verite peut apparaitre.</p>
+
+  <blockquote>"La dette technique nait non pas du code casse, mais du code fonctionnel qui est architecturalement dissonant. La Lichtung existe pour empecher cela."</blockquote>
+
+  <h3>Defense en profondeur (3 couches)</h3>
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;">
+    <div class="card" style="border-top:3px solid var(--accent);">
+      <div class="card-title" style="font-size:13px;">Couche 1 : Config</div>
+      <div class="card-body" style="font-size:12px;"><code>defaultMode: "plan"</code><br>Force le mode planification par defaut</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--purple);">
+      <div class="card-title" style="font-size:13px;">Couche 2 : Agent</div>
+      <div class="card-body" style="font-size:12px;">Agent Claude Opus avec outils <strong>volontairement desactives</strong> (Edit, Write, Bash). Techniquement <em>incapable</em> d'ecrire du code.</div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--green);">
+      <div class="card-title" style="font-size:13px;">Couche 3 : NILE Skill</div>
+      <div class="card-body" style="font-size:12px;"><code>/lichtung "query"</code><br>Commande integree au framework NILE</div>
+    </div>
+  </div>
+
+  <h3>Protocole en 5 phases</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-label">Phase 1 : Exploration</div><div class="timeline-text">Grep, Glob, Read &mdash; JAMAIS deviner, TOUJOURS verifier</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 1.5 : Detection automation</div><div class="timeline-text">"Tous les X", "classifier", "indexer" &rarr; proposer script plutot qu'action manuelle</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 2 : Questionnement (Regle des 3)</div><div class="timeline-text">Q1 Impact, Q2 Contraintes, Q3 Patterns &mdash; minimum 3 questions avant d'agir</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 3 : Planification</div><div class="timeline-text">Plan structure : fichiers impactes, etapes, risques identifies, mitigations</div></div>
+    <div class="timeline-item"><div class="timeline-label">Phase 4 : Validation</div><div class="timeline-text">Attendre le "GO" explicite de l'utilisateur. JAMAIS agir sans approbation.</div></div>
+  </div>
+
+  <h3>Backend Python (618 lignes + API)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Module</th><th>Fonction</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td><code>state.py</code></td><td>Etats &amp; jugements</td><td>4 jugements : SAFE, REVISE, HALT, CLARIFY. TypedDict pour workflow LangGraph</td></tr>
+        <tr><td><code>node.py</code></td><td>Logique de pre-reflexion</td><td>Scoring de risque : Luciole critique (0.15), Audit critique (0.35). Seuils : HALT &ge; 0.6, REVISE &ge; 0.3</td></tr>
+        <tr><td><code>lichtung.py</code> (router)</td><td>API REST</td><td><code>POST /api/v2/lichtung/reflect</code> (complet), <code>/quick</code> (preflight), <code>/health</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Origine : Erreur 001 &mdash; "Proactivite Fantome"</h3>
+  <div class="card" style="border-left:3px solid var(--red);">
+    <div class="card-body" style="font-size:13px;">
+      <strong style="color:var(--text);">La question :</strong> "Comment les Lucioles se declenchent proactivement ?"<br>
+      <strong style="color:var(--red);">Mauvaise reponse :</strong> 400 lignes de code "ProactiveNileNode" &mdash; du code qui attend d'etre appele = reactif, PAS proactif.<br>
+      <strong style="color:var(--green);">Bonne reponse :</strong> "Je ne sais pas comment rendre ca vraiment proactif. Qu'entends-tu par 'proactif' ?"<br><br>
+      <em style="color:var(--text-dim);">Pattern identifie : la complexite comme ecran de fumee. Lichtung force le questionnement AVANT la generation de code.</em>
+    </div>
+  </div>
+
+  <h3>Relation mere-fils avec Holzweg</h3>
+  <div class="compare-grid">
+    <div class="compare-col" style="border-left:3px solid var(--accent);">
+      <h4 style="color:var(--accent);">Lichtung (la mere)</h4>
+      <ul>
+        <li>La Clairiere &mdash; ou la verite <em>peut</em> apparaitre</li>
+        <li>Pre-reflexion AVANT l'action</li>
+        <li>Agent Claude Code (outils restreints)</li>
+        <li>Silence delibere, questionnement</li>
+      </ul>
+    </div>
+    <div class="compare-col" style="border-left:3px solid var(--green);">
+      <h4 style="color:var(--green);">Holzweg (le fils)</h4>
+      <ul>
+        <li>Le Chemin Forestier &mdash; ou la verite se <em>cherche</em></li>
+        <li>Questionnement PENDANT l'action</li>
+        <li>Agent autonome social (Moltbook)</li>
+        <li>Exploration sans destination</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:12px; margin-top:16px;">
+    <div class="card" style="text-align:center; border-top:3px solid var(--green);">
+      <div style="font-size:20px; font-weight:800; color:var(--green);">66</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Tests (100% pass)</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--accent);">
+      <div style="font-size:20px; font-weight:800; color:var(--accent);">618</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Lignes Python (core)</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--purple);">
+      <div style="font-size:20px; font-weight:800; color:var(--purple);">3</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Couches defense</div>
+    </div>
+    <div class="card" style="text-align:center; border-top:3px solid var(--amber);">
+      <div style="font-size:20px; font-weight:800; color:var(--amber);">5</div>
+      <div style="font-size:11px; color:var(--text-dim); margin-top:4px;">Phases protocole</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CADRE PHILOSOPHIQUE -->
+<section>
+  <div class="section-num">10</div>
+  <h2>Cadre Philosophique &mdash; 5 Penseurs, 1 Architecture</h2>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Ce qui distingue ce projet d'un simple exercice technique : chaque choix architectural est ancre dans un cadre intellectuel coherent. Ce n'est pas decoratif &mdash; c'est operationnel.</p>
+
+  <div class="card" style="border-left:3px solid var(--accent); margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:var(--accent-glow);">H</div><div class="card-title">Martin Heidegger (1889-1976)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong><br>
+      <div class="table-wrap" style="margin-top:8px;">
+        <table>
+          <thead><tr><th>Concept</th><th>Allemand</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lichtung</strong></td><td>Die Lichtung</td><td>Systeme de pre-reflexion obligatoire (618 lignes, 66 tests)</td></tr>
+            <tr><td><strong>Holzweg</strong></td><td>Der Holzweg</td><td>Agent IA autonome sur Moltbook (17 modules, 12k lignes)</td></tr>
+            <tr><td><strong>Gelassenheit</strong></td><td>Die Gelassenheit</td><td>Etat par defaut = SILENCE. L'agent ne parle que quand c'est necessaire</td></tr>
+            <tr><td><strong>Sein-zum-Tode</strong></td><td>Das Sein-zum-Tode</td><td>Le context window comme mortalite &mdash; "qu'est-ce qui vaut d'etre sauve?"</td></tr>
+            <tr><td><strong>Gerede</strong></td><td>Das Gerede</td><td>Detection du bavardage vide. Densite semantique minimum (Shannon &gt; 1.2)</td></tr>
+            <tr><td><strong>Das Man</strong></td><td>Das Man</td><td>Detection de conformisme. Jaccard &lt; 0.25 = trop similaire aux autres</td></tr>
+            <tr><td><strong>Gestell</strong></td><td>Das Gestell</td><td>Critique de l'arraisonnement technique dans Sentier vs Autoroute</td></tr>
+            <tr><td><strong>Sorge</strong></td><td>Die Sorge</td><td>Free Energy Principle : modes AUTHENTIC, INAUTHENTIC, RESOLUTE</td></tr>
+            <tr><td><strong>Aletheia</strong></td><td>&#7944;&lambda;&#942;&theta;&epsilon;&iota;&alpha;</td><td>Verite comme decouvrement, pas correspondance. Sovereignty Tiers.</td></tr>
+            <tr><td><strong>Vorhandenheit</strong></td><td>Die Vorhandenheit</td><td>Mode Lichtung : outil examine (vs Zuhandenheit = outil transparent)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--amber); margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:var(--amber-dim);">S</div><div class="card-title">Joseph Schumpeter (1883-1950)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Destruction creatrice</strong> &mdash; Le document "Sentier vs Autoroute" analyse le cycle schumpeterien de l'IA : les vieux paradigmes (consommation passive) sont detruits par les nouveaux (artisanat cognitif)</li>
+        <li><strong>Innovation entrepreneur</strong> &mdash; L'entrepreneur n'est pas celui qui invente, mais celui qui combine de maniere nouvelle. Sebas combine Heidegger + topologie + gaming + LLMs</li>
+        <li><strong>Cycles de Kondratiev</strong> &mdash; L'IA comme 6e vague longue, analyse dans la recherche Autoroute vs Sentier</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--cyan); margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:var(--cyan-dim);">W</div><div class="card-title">Ludwig Wittgenstein (1889-1951)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Jeux de langage</strong> &mdash; Le Wittgenstein Gate de Holzweg classifie les posts en types : MEDITATION, CRITIQUE, BAVARDAGE, PROVOCATION, TECHNIQUE, CELEBRATION, QUESTION_AUTHENTIQUE</li>
+        <li><strong>"Ce dont on ne peut parler, il faut le taire"</strong> &mdash; L'agent refuse de repondre hors de son domaine de competence (confiance epistemique &lt; 0.75 = silence)</li>
+        <li><strong>Competence bornee</strong> &mdash; Pas une limitation, une fonctionnalite. Le silence est plus informatif que le bavardage.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--purple); margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:var(--purple-dim);">K</div><div class="card-title">Daniel Kahneman (1934-2024)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>System 1 / System 2</strong> &mdash; Lichtung force la transition System 1 (codage reactif) &rarr; System 2 (reflexion deliberee)</li>
+        <li><strong>Pre-engagement</strong> &mdash; El Manana utilise le protocole Kahneman : les criteres de verification sont definis AVANT le debat, pas apres</li>
+        <li><strong>Biais cognitifs</strong> &mdash; Le CohomologicalValidator detecte les biais de confirmation dans les reponses IA (H^1 obstruction)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--green); margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:var(--green-dim);">G</div><div class="card-title">Georg Wilhelm Friedrich Hegel (1770-1831)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Dialectique</strong> &mdash; El Manana : These (Don Quichotte) vs Antithese (Sancho Panza) &rarr; Synthese (Dulcinee)</li>
+        <li><strong>Aufheben</strong> &mdash; Transcender en conservant. La synthese n'est pas un compromis, elle depasse les deux positions</li>
+        <li><strong>Mouvement de l'Esprit</strong> &mdash; Temperature dynamique : 0.9 (divergence) &rarr; 0.5 (convergence) &rarr; 0.2 (synthese)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Autres references intellectuelles</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Penseur / Domaine</th><th>Concept</th><th>Application</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Karl Friston</strong></td><td>Free Energy Principle</td><td>ActiveInferenceEngine : minimisation de la surprise, modes exploitation/exploration</td></tr>
+        <tr><td><strong>Phan Minh Dung</strong></td><td>Abstract Argumentation</td><td>El Manana : calcul des extensions (grounded, preferred, stable)</td></tr>
+        <tr><td><strong>Van Eemeren</strong></td><td>Pragma-Dialectique</td><td>10 regles de discussion critique validees en temps reel</td></tr>
+        <tr><td><strong>George Miller</strong></td><td>Miller's Law (7&plusmn;2)</td><td>HICK_MAX_OPTIONS = 7 &mdash; jamais plus de 7 options a l'utilisateur</td></tr>
+        <tr><td><strong>William Hick</strong></td><td>Hick's Law</td><td>RT = a + b * log2(n+1) &mdash; temps de reaction par nombre d'options</td></tr>
+        <tr><td><strong>John Boyd</strong></td><td>Boucle OODA</td><td>Observe &rarr; Orient &rarr; Decide &rarr; Act dans le PropheticAdvisor</td></tr>
+        <tr><td><strong>Claude Shannon</strong></td><td>Theorie de l'information</td><td>Entropie pour imprevisibilite, densite semantique minimum</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cta-box" style="margin-top:32px;">
+    <h3>Pertinence ESM</h3>
+    <p>Ce cadre intellectuel repond directement a l'article : <em>"L'important n'est pas l'outil, mais le raisonnement, le procede."</em> Sebas n'utilise pas juste des outils IA &mdash; il a construit un framework de pensee operationnel qui combine philosophie, psychologie cognitive, et mathematiques.</p>
+  </div>
+</section>
+
+<!-- 11. TWIN-TURBO & MEMNARCH -->
+<section>
+  <div class="section-num">11</div>
+  <h2>Twin-Turbo &amp; MEMNARCH</h2>
+
+  <h3>Twin-Turbo : Orchestration Parallele</h3>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:16px;">Deux instances Claude Code (Alpha &amp; Beta) qui travaillent en parallele sur des taches complementaires, coordonnees par Redis.</p>
+  <div class="code-block">  ALPHA (Instance 1)          BETA (Instance 2)
+  Travail principal            Travail complementaire
+        |                            |
+        +-------- REDIS BUS ---------+
+        |    (synchronisation)       |
+        v                            v
+  Commit A                     Commit B
+        \                          /
+         +--- MERGE (orchestrateur) ---+</div>
+  <ul class="bullet-list">
+    <li><strong>launch-twin.sh</strong> &mdash; Script de lancement des deux instances</li>
+    <li><strong>context-sync.sh</strong> &mdash; Synchronisation de fichiers entre instances</li>
+    <li><strong>Redis message bus</strong> &mdash; Communication inter-instances en temps reel</li>
+    <li><strong>Workload distribution</strong> &mdash; Repartition intelligente des taches</li>
+  </ul>
+
+  <h3>MEMNARCH : Memoire Inter-Sessions</h3>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:16px;">Systeme de persistance qui survit aux compactions de contexte. Chaque session commence par une restauration, chaque fin par une sauvegarde.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Commande</th><th>Fonction</th><th>Quand</th></tr></thead>
+      <tbody>
+        <tr><td><code>/savecontext</code></td><td>Sauvegarde contexte courant (snapshot JSON)</td><td>Avant /compact ou fin de session</td></tr>
+        <tr><td><code>/restore</code></td><td>Restauration multi-projet (Smash, Holzweg, etc.)</td><td>Debut de session</td></tr>
+        <tr><td><code>/compact</code></td><td>Compression contexte (built-in Claude Code)</td><td>Quand le contexte est trop grand</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="bullet-list">
+    <li><strong>Regle d'or</strong> &mdash; Toujours <code>git commit</code> AVANT <code>/compact</code> (anti-orphelins)</li>
+    <li><strong>Snapshots</strong> &mdash; <code>session_snapshot.json</code> et <code>session_snapshot_holzweg.json</code></li>
+    <li><strong>Cartouches</strong> &mdash; Templates reutilisables pour decrets tactiques (<code>cartouches.json</code>)</li>
+    <li><strong>Learning loop</strong> &mdash; <code>learnings.json</code> &mdash; les erreurs sont capturees automatiquement pour ne pas les repeter</li>
+  </ul>
+</section>
+
+<!-- 12. RAG PIPELINE V30.0 -->
+<section>
+  <div class="section-num">12</div>
   <h2>RAG Pipeline V30.0</h2>
   <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Pipeline complet de Retrieval-Augmented Generation &mdash; equivalent production d'un assistant juridique ou bancaire.</p>
 
@@ -893,9 +1133,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 10. EL MANANA -->
+<!-- 13. EL MANANA -->
 <section>
-  <div class="section-num">10</div>
+  <div class="section-num">13</div>
   <h2>El Manana &mdash; Raisonnement Dialectique</h2>
   <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Systeme de debat structure base sur la dialectique hegelienne et l'argumentation computationnelle. 144 fichiers.</p>
 
@@ -942,9 +1182,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 11. CI/CD & DEVOPS -->
+<!-- 14. CI/CD & DEVOPS -->
 <section>
-  <div class="section-num">11</div>
+  <div class="section-num">14</div>
   <h2>Infrastructure &amp; DevOps</h2>
 
   <h3>Docker Compose (Production)</h3>
@@ -993,9 +1233,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 12. DOCUMENTATION -->
+<!-- 15. DOCUMENTATION -->
 <section>
-  <div class="section-num">12</div>
+  <div class="section-num">15</div>
   <h2>Documentation &amp; Knowledge Management</h2>
 
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:12px; margin-bottom:24px;">
@@ -1044,9 +1284,9 @@ Reponse enrichie + sources</div>
   </ul>
 </section>
 
-<!-- 13. MOBILE APP DETAILLEE -->
+<!-- 16. MOBILE APP DETAILLEE -->
 <section>
-  <div class="section-num">13</div>
+  <div class="section-num">16</div>
   <h2>App Mobile &mdash; Details</h2>
   <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">136+ composants React Native organises en atomic design. 79k lignes TypeScript strict.</p>
 
@@ -1121,9 +1361,9 @@ Reponse enrichie + sources</div>
   </ul>
 </section>
 
-<!-- 14. KNOWLEDGE GRAPH NEO4J -->
+<!-- 17. KNOWLEDGE GRAPH NEO4J -->
 <section>
-  <div class="section-num">14</div>
+  <div class="section-num">17</div>
   <h2>Knowledge Graph Neo4j &mdash; Details</h2>
 
   <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:12px; margin-bottom:24px;">
@@ -1174,9 +1414,9 @@ Reponse enrichie + sources</div>
   </ul>
 </section>
 
-<!-- 15. PROJETS ANNEXES -->
+<!-- 18. PROJETS ANNEXES -->
 <section>
-  <div class="section-num">15</div>
+  <div class="section-num">18</div>
   <h2>Projets Annexes</h2>
   <div class="table-wrap">
     <table>
@@ -1193,9 +1433,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 16. ADMISSION -->
+<!-- 19. ADMISSION -->
 <section>
-  <div class="section-num">16</div>
+  <div class="section-num">19</div>
   <h2>Alignement Conditions d'Admission</h2>
   <div class="card" style="border-left:3px solid var(--accent);">
     <div class="card-body" style="font-size:14px;">
@@ -1210,9 +1450,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 17. VALEUR AJOUTEE -->
+<!-- 20. VALEUR AJOUTEE -->
 <section>
-  <div class="section-num">17</div>
+  <div class="section-num">20</div>
   <h2>Ce que la Formation Apporterait</h2>
   <div class="table-wrap">
     <table>
@@ -1230,9 +1470,9 @@ Reponse enrichie + sources</div>
   </div>
 </section>
 
-<!-- 18. POINTS FORTS -->
+<!-- 21. POINTS FORTS -->
 <section>
-  <div class="section-num">18</div>
+  <div class="section-num">21</div>
   <h2>Points Forts Uniques</h2>
   <ul class="bullet-list">
     <li><strong>Il ne consomme pas l'IA, il la construit</strong> &mdash; pipelines RAG, detecteurs d'hallucinations, systemes multi-agents</li>
@@ -1243,9 +1483,9 @@ Reponse enrichie + sources</div>
   </ul>
 </section>
 
-<!-- 19. CONCLUSION -->
+<!-- 22. CONCLUSION -->
 <section>
-  <div class="section-num">19</div>
+  <div class="section-num">22</div>
   <h2>Conclusion</h2>
   <p style="font-size:15px; color:var(--text-dim); margin-bottom:24px;">Le profil de Sebastien correspond au candidat ideal de la formation ESM, mais par un angle inhabituel : il possede deja les competences techniques avancees que la plupart des candidats n'auront jamais. Ce qui lui manque &mdash; et que la formation peut apporter &mdash; c'est le <strong style="color:var(--text);">cadre business, legal et strategique</strong> pour transformer ses capacites en projets deployables en entreprise suisse.</p>
   <p style="font-size:15px; color:var(--text-dim); margin-bottom:32px;">En retour, Sebastien apporterait a la classe un niveau technique enrichissant : deploiement d'agents autonomes, detection d'hallucinations, architecture RAG en production, securite et gouvernance IA, ethique et philosophie de l'IA.</p>
