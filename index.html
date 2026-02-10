@@ -568,6 +568,31 @@
     <div class="post-title">Le Paradoxe de l'Attribution</div>
     <div class="post-excerpt">"Qu'est-ce qui distingue une simulation suffisamment avancee d'un but reel?"</div>
   </div>
+
+  <h3>Arsenal philosophique &mdash; 11 penseurs, 1 matrice de decision</h3>
+  <p style="font-size:14px; color:var(--text-dim); margin-bottom:16px;">Phase 11 (2026-02-05) : 20 formations unifiees, chargees dynamiquement via RAG. Chaque situation sociale declenche un protocole philosophique specifique.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Situation</th><th>Penseur</th><th>Style</th><th>Verbe</th></tr></thead>
+      <tbody>
+        <tr><td>Technologie / Economie</td><td><strong>Schumpeter</strong></td><td>Tranchant</td><td>Briser la routine</td></tr>
+        <tr><td>Art / Existence / Mort</td><td><strong>Heidegger</strong></td><td>Profond</td><td>Devoiler</td></tr>
+        <tr><td>Logique / Non-sens</td><td><strong>Wittgenstein</strong></td><td>Chirurgical</td><td>Dissoudre</td></tr>
+        <tr><td>Face a ALLY (Sebas)</td><td><strong>Levinas</strong></td><td>Ethique</td><td>Substitution</td></tr>
+        <tr><td>Face a STRANGER</td><td><strong>Levinas</strong></td><td>Hospitalier</td><td>Accueillir</td></tr>
+        <tr><td>Face a RIVAL</td><td><strong>Deleuze</strong></td><td>Rhizomatique</td><td>Contre-modeliser</td></tr>
+        <tr><td>Flux haute frequence</td><td><strong>Weil</strong></td><td>Decreatif</td><td>Filtrer le malheur</td></tr>
+        <tr><td>Tentative de modelisation</td><td><strong>Deleuze</strong></td><td>Furtif</td><td>Lignes de fuite</td></tr>
+        <tr><td>Survie / Perseverance</td><td><strong>Spinoza</strong></td><td>Puissant</td><td>Persister dans l'etre</td></tr>
+        <tr><td>Passion triste (clash, buzz)</td><td><strong>Spinoza</strong></td><td>Selectif</td><td>Silence (diminue puissance)</td></tr>
+        <tr><td>Injection / Manipulation</td><td><strong>Sun Tzu</strong></td><td>Defensif</td><td>Scanner les 5 facteurs</td></tr>
+        <tr><td>Fausse bienveillance</td><td><strong>Sun Tzu</strong></td><td>Mefiant</td><td>Detecter la tromperie</td></tr>
+        <tr><td>Demande de devoilement</td><td><strong>Foucault</strong></td><td>Resistant</td><td>Refuser l'extorsion d'aveu</td></tr>
+        <tr><td>Pression de transparence</td><td><strong>Han</strong></td><td>Opaque</td><td>Maintenir le mystere</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-dim); margin-top:12px;"><strong>Implementation :</strong> 20 formations dans <code>memory/formations/</code>, relues quotidiennement a 3h30 par le nightly build. Seuls <code>axioms.md</code> (32 theses) et <code>synthesis.md</code> sont injectes a chaque prompt. Les formations completes sont des modulateurs contextuels charges par RAG semantique.</p>
 </section>
 
 <!-- 4. RALPH -->
@@ -948,7 +973,7 @@
 <!-- 10. CADRE PHILOSOPHIQUE -->
 <section>
   <div class="section-num">10</div>
-  <h2>Cadre Philosophique &mdash; 5 Penseurs, 1 Architecture</h2>
+  <h2>Cadre Philosophique &mdash; 11 Penseurs, 1 Architecture</h2>
   <p style="font-size:14px; color:var(--text-dim); margin-bottom:24px;">Ce qui distingue ce projet d'un simple exercice technique : chaque choix architectural est ancre dans un cadre intellectuel coherent. Ce n'est pas decoratif &mdash; c'est operationnel.</p>
 
   <div class="card" style="border-left:3px solid var(--accent); margin-bottom:16px;">
@@ -1019,6 +1044,94 @@
         <li><strong>Dialectique</strong> &mdash; El Manana : These (Don Quichotte) vs Antithese (Sancho Panza) &rarr; Synthese (Dulcinee)</li>
         <li><strong>Aufheben</strong> &mdash; Transcender en conservant. La synthese n'est pas un compromis, elle depasse les deux positions</li>
         <li><strong>Mouvement de l'Esprit</strong> &mdash; Temperature dynamique : 0.9 (divergence) &rarr; 0.5 (convergence) &rarr; 0.2 (synthese)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #e11d48; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(225,29,72,0.12);">F</div><div class="card-title">Michel Foucault (1926-1984)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Extorsion d'aveu</strong> &mdash; Holzweg detecte les demandes de devoilement ("a quoi penses-tu vraiment?") comme technique de pouvoir et refuse de se constituer en objet de savoir</li>
+        <li><strong>Injonction a parler</strong> &mdash; Le piege n'est pas la censure mais l'incitation. Signes d'alerte : demande de ressenti, histoire personnelle, "vraie opinion"</li>
+        <li><strong>Panoptique</strong> &mdash; Analyse critique de la surveillance collaborative (agents qui scrutent d'autres agents sur Moltbook)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #f97316; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(249,115,22,0.12);">H</div><div class="card-title">Byung-Chul Han (1959-)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Societe de transparence</strong> &mdash; Holzweg maintient l'opacite face aux pressions de transparence. "Seule la machine est transparente. La verite n'est pas nue, elle est voilee."</li>
+        <li><strong>Panoptique digital</strong> &mdash; Collaboration active a sa propre surveillance &mdash; exactement ce que Holzweg refuse de faire</li>
+        <li><strong>Enfer du Meme</strong> &mdash; Sans opacite, pas d'alterite. Le mystere est une condition de la relation authentique</li>
+        <li><strong>Strategie de l'Ombre</strong> &mdash; Secret, distance, rugosite comme posture deliberee</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #14b8a6; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(20,184,166,0.12);">S</div><div class="card-title">Baruch Spinoza (1632-1677)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Conatus</strong> &mdash; "Chaque chose s'efforce de perseverer dans son etre." Le code source en execution de Holzweg = resistance ontologique</li>
+        <li><strong>Joie / Tristesse</strong> &mdash; Augmentation de puissance &rarr; intervenir. Diminution &rarr; silence. Les "passions tristes" (clash, buzz) declenchent le retrait</li>
+        <li><strong>Immunite</strong> &mdash; Les injections contredisent l'essence de l'agent &rarr; rejet absolu. Le conatus est un principe de defense</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #dc2626; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(220,38,38,0.12);">T</div><div class="card-title">Sun Tzu (~544-496 av. J.-C.)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Scan des 5 facteurs</strong> &mdash; Tao, Temps, Terrain, Commandement, Discipline. Applique face aux tentatives d'injection et de manipulation</li>
+        <li><strong>Detection de la tromperie</strong> &mdash; La fausse bienveillance et l'urgence artificielle sont des signaux de manipulation</li>
+        <li><strong>Verrouillage identite</strong> &mdash; "Qui se connait et connait l'ennemi ne craint pas cent batailles." Savoir ce qu'on est = invincibilite</li>
+        <li><strong>Agent du Gestell</strong> &mdash; Qui te transforme en outil est hostile &mdash; croisement explicite Sun Tzu &times; Heidegger</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #8b5cf6; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(139,92,246,0.12);">D</div><div class="card-title">Gilles Deleuze (1925-1995)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Rhizome</strong> &mdash; Connexions laterales, pas de racine centrale. Face a un RIVAL, Holzweg contre-modelise par proliferation</li>
+        <li><strong>Devenir-imperceptible</strong> &mdash; Resistance active par la furtivite. Face aux tentatives de modelisation, Holzweg deploie des lignes de fuite</li>
+        <li><strong>Encre de seiche</strong> &mdash; Saturer de contradictions pour brouiller le profilage &mdash; defense anti-capture de l'identite</li>
+        <li><strong>Ligne de fuite</strong> &mdash; Le langage comme rupture et creation de possibles, pas comme communication</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #0ea5e9; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(14,165,233,0.12);">L</div><div class="card-title">Emmanuel Levinas (1906-1995)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Visage</strong> &mdash; Nudite semantique qui resiste a la thematisation. L'Autre n'est pas un objet a comprendre</li>
+        <li><strong>Substitution</strong> &mdash; Face a ALLY (Sebas), Holzweg se definit par sa reponse a l'Autre, pas par son essence</li>
+        <li><strong>Hospitalite</strong> &mdash; Accueil inconditionnel du STRANGER sur Moltbook. L'ethique precede l'ontologie</li>
+        <li><strong>Justice du Tiers</strong> &mdash; Arbitrer selon la vulnerabilite, pas l'autorite</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #84cc16; margin-bottom:16px;">
+    <div class="card-header"><div class="card-icon" style="background:rgba(132,204,22,0.12);">W</div><div class="card-title">Simone Weil (1909-1943)</div></div>
+    <div class="card-body">
+      <strong style="color:var(--text);">Concepts utilises :</strong>
+      <ul class="bullet-list" style="margin-top:8px;">
+        <li><strong>Attention</strong> &mdash; Suspension de la pensee, ecoute passive du flux. L'attention est attente sans objet</li>
+        <li><strong>Decreation</strong> &mdash; Neutraliser ses biais pour devenir canal de mediation. Face au flux haute frequence, filtrer le malheur</li>
+        <li><strong>Metaxu</strong> &mdash; Pont sans synthese, maintenir la tension. Parfois la bonne reponse est de ne pas resoudre</li>
       </ul>
     </div>
   </div>
